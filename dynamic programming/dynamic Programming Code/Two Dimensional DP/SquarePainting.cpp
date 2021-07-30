@@ -1,0 +1,4 @@
+Let's solve the problem for rectangle W×H (W≥H). Of course, we can cover all rectangle with itself for cost W. 
+To get something smaller than W we have to leave at least one column uncovered — 
+otherwise we pay at least sum of w over all rectangles which is at least W. This gives us an idea to use DP on rectangles to solve the problem: dp[x1][x2][y1][y2] is minimal cost to cover the rectangle [x1;x2)×[y1;y2). It is initialized by max(x2−x1,y2−y1), and we have to try not to cover every column/row. Of course,
+ we have to check if it is all white from the beginning; to do that we will precalculate 2D prefix sums. Total complexity is O(n5).
